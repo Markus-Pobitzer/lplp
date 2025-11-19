@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loomis Painter</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* Custom styles to tweak the look */
+        body {
+            font-family: 'BlinkMacSystemFont', -apple-system, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+            background-color: #fcfcfc;
+        }
+
+        /* Restrict max-width for wide screens so it doesn't stretch too much */
+        .container.is-max-desktop {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        /* Styling for the author links */
+        .author-block a {
+            color: #3273dc;
+            font-weight: 500;
+        }
+
+        .author-block a:hover {
+            text-decoration: underline;
+        }
+
+        /* Spacing for the grid */
+        .gallery-item {
+            margin-bottom: 1rem;
+        }
+
+        /* Make videos and images responsive */
+        img,
+        video {
+            border-radius: 8px;
+            /* Rounded corners */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            /* Subtle shadow */
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Citation block styling */
+        .bibtex-section {
+            background-color: #f5f5f5;
+            padding: 1.5rem;
+            border-radius: 8px;
+            overflow-x: auto;
+        }
+    </style>
+</head>
+
+<body>
+
+    <section class="section">
+        <div class="container is-max-desktop">
+
+            <div class="columns is-centered">
+                <div class="column is-8 has-text-centered">
+
+                    <h1 class="title is-1 is-size-2-mobile publication-title">
+                        Loomis Painter
+                    </h1>
+                    <h2 class="title is-3">Reconstructing the Painting Process</h2>
+
+                    <div class="is-size-5 publication-authors">
+                        <span class="author-block">
+                            <a href="https://scholar.google.com/citations?user=nkFplAIAAAAJ">Markus
+                                Pobitzer</a><sup>1</sup>,
+                        </span>
+                        <span class="author-block">
+                            <a href="https://scholar.google.com/citations?user=CmBI2BgAAAAJ">Chang
+                                Liu</a><sup>1,&#8224;</sup>,
+                        </span>
+                        <span class="author-block">
+                            <a href="https://scholar.google.com/citations?user=To5gjDQAAAAJ">Chenyi
+                                Zhuang</a><sup>1</sup>,
+                        </span>
+                        <span class="author-block">
+                            <a href="https://scholar.google.nl/citations?user=5Iv3ul0AAAAJ">Teng Long</a><sup>1</sup>,
+                        </span>
+                        <span class="author-block">
+                            <a href="https://scholar.google.com/citations?user=Md9maLYAAAAJ">Bin Ren</a><sup>1,2</sup>,
+                        </span>
+                        <span class="author-block">
+                            <a href="https://scholar.google.com/citations?user=stFCYOAAAAAJ">Nicu Sebe</a><sup>1</sup>
+                        </span>
+                    </div>
+
+                    <div class="is-size-6 publication-authors">
+                        <span class="author-block"><sup>1</sup>University of Trento,</span>
+                        <span class="author-block"><sup>2</sup>University of Pisa,</span>
+                        <span class="author-block"><sup>&#8224;</sup>Corresponding Author</span>
+                    </div>
+
+                    <div class="column has-text-centered">
+                        <div class="publication-links">
+                            <!--
+                            <span class="link-block">
+                                <a href="PAPER_LINK.pdf" class="button is-dark is-rounded">
+                                    <span class="icon"><i class="fas fa-file-pdf"></i></span>
+                                    <span>Paper</span>
+                                </a>
+                            </span>
+                            -->
+                            <span class="link-block">
+                                <a href="https://github.com/Markus-Pobitzer/wlp" class="button is-dark is-rounded">
+                                    <span class="icon"><i class="fab fa-github"></i></span>
+                                    <span>Code</span>
+                                </a>
+                            </span>
+                            <!--
+                            <span class="link-block">
+                                <a href="https://youtube.com" class="button is-dark is-rounded">
+                                    <span class="icon"><i class="fab fa-youtube"></i></span>
+                                    <span>Video</span>
+                                </a>
+                            </span>
+                            -->
+                            <span class="link-block">
+                                <a href="https://mhug.disi.unitn.it/" class="button is-dark is-rounded">
+                                    <span>MHUG</span>
+                                </a>
+                            </span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!--
+            <div class="columns is-centered has-text-centered">
+                <div class="column is-four-fifths">
+                    <h2 class="title is-3">Abstract</h2>
+                    <div class="content has-text-justified">
+                        <p>
+                            Step-by-step painting tutorials are vital for learning artistic techniques, but existing video resources (\eg, YouTube) lack interactivity and personalization. While recent generative models have advanced artistic image synthesis, they struggle to generalize across media and often show temporal or structural inconsistencies, hindering faithful reproduction of human creative workflows. To address this, we propose a unified framework for multi-media painting process generation with a semantics-driven style control mechanism that embeds multiple media into a diffusion model’s conditional space and uses cross-medium style augmentation. This enables consistent texture evolution and process transfer across styles. A reverse-painting training strategy further ensures smooth, human-aligned generation. We also build a large-scale dataset of real painting processes and evaluate cross-media consistency, temporal coherence, and final-image fidelity, achieving strong results on LPIPS, DINO, and CLIP metrics. Finally, our Perceptual Distance Profile (PDP) curve quantitatively models the creative sequence, i.e., composition, color blocking, and detail refinement, mirroring human artistic progression.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            -->
+
+            <hr>
+
+            <h2 class="title is-3 has-text-centered">Reconstructing the Painting Process</h2>
+
+            <div class="columns is-centered">
+
+                <div class="column is-6">
+                    <div class="columns is-mobile is-variable is-1">
+                        <div class="column is-half">
+                            <video poster="" autoplay controls muted loop playsinline width="100%">
+                                <source src="files/10647519/Base.mp4" type="video/mp4">
+                            </video>
+                            <p class="has-text-centered is-size-7">Generated Video</p>
+                        </div>
+                        <div class="column is-half">
+                            <a href="https://www.wikiart.org/en/claude-monet/grainstacks" target="_blank">
+                                <img src="files/10647519/reference_image.png" alt="Input"
+                                    title="Haystacks by Claude Monet. Source: Wikiart.">
+                            </a>
+                            <p class="has-text-centered is-size-7">Input</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="column is-6">
+                    <div class="columns is-mobile is-variable is-1">
+                        <div class="column is-half">
+                            <video poster="" autoplay controls muted loop playsinline width="100%">
+                                <source src="files/34107201/Base.mp4" type="video/mp4">
+                            </video>
+                            <p class="has-text-centered is-size-7">Generated Video</p>
+                        </div>
+                        <div class="column is-half">
+                            <a href="https://commons.wikimedia.org/wiki/File:Payne_Lake_by_Edgar_Alwin_Payne.jpg"
+                                target="_blank">
+                                <img src="files/34107201/reference_image.png" alt="Input"
+                                    title="Payne Lake by Edgar Alwin Payne. Source: Wikimedia.">
+                            </a>
+                            <p class="has-text-centered is-size-7">Input</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+
+            <div class="columns is-centered">
+
+                <div class="column is-6">
+                    <div class="columns is-mobile is-variable is-1">
+                        <div class="column is-half">
+                            <video poster="" autoplay controls muted loop playsinline width="100%">
+                                <source src="files/65946416/Base.mp4" type="video/mp4">
+                            </video>
+                            <p class="has-text-centered is-size-7">Generated Video</p>
+                        </div>
+                        <div class="column is-half">
+                            <a href="https://commons.wikimedia.org/wiki/File:Compton,_1879,_Matterhorn.jpg"
+                                target="_blank">
+                                <img src="files/65946416/reference_image.png" alt="Input"
+                                    title="Matterhorn by Edward Theodore Compton. Source: Wikimedia.">
+                            </a>
+                            <p class="has-text-centered is-size-7">Input</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="column is-6">
+                    <div class="columns is-mobile is-variable is-1">
+                        <div class="column is-half">
+                            <video poster="" autoplay controls muted loop playsinline width="100%">
+                                <source src="files/86735686/Base.mp4" type="video/mp4">
+                            </video>
+                            <p class="has-text-centered is-size-7">Generated Video</p>
+                        </div>
+                        <div class="column is-half">
+                            <a href="https://commons.wikimedia.org/wiki/File:Continental_Divide,_by_Edgar_Alwin_Payne.jpg"
+                                target="_blank">
+                                <img src="files/86735686/reference_image.png" alt="Input"
+                                    title="Continental Divide, by Edgar Alwin Payne. Source: Wikimedia.">
+                            </a>
+                            <p class="has-text-centered is-size-7">Input</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <hr>
+            <h2 class="title is-3 has-text-centered">Loomis Pencil Portraits</h2>
+
+            <div class="columns is-centered">
+
+                <div class="column is-6">
+                    <div class="columns is-mobile is-variable is-1">
+                        <div class="column is-half">
+                            <video poster="" autoplay controls muted loop playsinline width="100%">
+                                <source src="files/61902154/Loomis.mp4" type="video/mp4">
+                            </video>
+                            <p class="has-text-centered is-size-7">Generated Video</p>
+                        </div>
+                        <div class="column is-half">
+                            <img src="files/61902154/reference_image.png" alt="Input"
+                                title="Generated with Stable Diffusion 3 Medium.">
+                            <p class="has-text-centered is-size-7">Input</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="column is-6">
+                    <div class="columns is-mobile is-variable is-1">
+                        <div class="column is-half">
+                            <video poster="" autoplay controls muted loop playsinline width="100%">
+                                <source src="files/48455212/Loomis.mp4" type="video/mp4">
+                            </video>
+                            <p class="has-text-centered is-size-7">Generated Video</p>
+                        </div>
+                        <div class="column is-half">
+                            <img src="files/48455212/reference_image.png" alt="Input"
+                                title="Generated with Stable Diffusion 3 Medium.">
+                            <p class="has-text-centered is-size-7">Input</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <hr>
+            <h2 class="title is-3 has-text-centered">Art Media Transfer</h2>
+
+            <div class="columns is-centered is-vcentered">
+                    <div class="column">
+                    <p class="has-text-centered is-size-4">Acrylic</p>
+                </div>
+
+                <div class="column">
+                    <p class="has-text-centered is-size-4">Loomis</p>
+                </div>
+
+                <div class="column">
+                    <p class="has-text-centered is-size-4">Oil</p>
+                </div>
+
+                <div class="column">
+                    <p class="has-text-centered is-size-4">Pencil</p>
+                </div>
+
+                <div class="column">
+                    <p class="has-text-centered is-size-4">Base</p>
+                </div>
+
+                <div class="column" >
+                    <p class="has-text-centered is-size-4 has-text-weight-bold">Input</p>
+                </div>
+            </div>
+
+            <div class="columns is-centered is-vcentered">
+
+                <div class="column">
+                    <video autoplay controls muted loop playsinline width="100%">
+                        <source src="files/10358054/Acrylic.mp4" type="video/mp4">
+                    </video>
+                </div>
+
+                <div class="column">
+                    <video autoplay controls muted loop playsinline width="100%">
+                        <source src="files/10358054/Loomis.mp4" type="video/mp4">
+                    </video>
+                </div>
+
+                <div class="column">
+                    <video autoplay controls muted loop playsinline width="100%">
+                        <source src="files/10358054/Oil.mp4" type="video/mp4">
+                    </video>
+                </div>
+
+                <div class="column">
+                    <video autoplay controls muted loop playsinline width="100%">
+                        <source src="files/10358054/Pencil.mp4" type="video/mp4">
+                    </video>
+                </div>
+
+                <div class="column">
+                    <video autoplay controls muted loop playsinline width="100%">
+                        <source src="files/10358054/Base.mp4" type="video/mp4">
+                    </video>
+                </div>
+
+                <div class="column" >
+                    <a href="https://commons.wikimedia.org/wiki/File:Albrecht_D%C3%BCrer_-_Hare,_1502_-_Google_Art_Project.jpg"
+                                target="_blank">
+                        <img src="files/10358054/reference_image.png" alt="Reference" titel="Hare by Albrecht Dürer. Source Wikimedia.">
+                    </a>
+                </div>
+
+            </div>
+
+            <hr>
+
+            <div class="columns is-centered">
+                <div class="column is-four-fifths">
+                    <h2 class="title is-3">Citation</h2>
+                    <pre class="bibtex-section">
+                        <code>
+                        @article{doe2025visualizing,
+                            title={Visualizing High-Dimensional Data Fields},
+                            author={Doe, Jane and Smith, John and Johnson, Alex},
+                            journal={Journal of Visual Research},
+                            year={2025}
+                        }
+                        </code></pre>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="content has-text-centered">
+            <p>
+                <strong>Loomis Painter</strong> by Markus Pobitzer and <a
+                    href="https://mhug.disi.unitn.it/people/">MHUG</a>.
+            </p>
+        </div>
+    </footer>
+
+</body>
+
+</html>
